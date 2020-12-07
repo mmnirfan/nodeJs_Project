@@ -43,7 +43,7 @@ router.delete('/:id', async(req, res) => {
         const project = await Project.findById(req.params.id)
         c1 = await project.remove()
         res.status(200).json({
-            message: "Request Vendor was DELETED",
+            message: "Request Project was DELETED",
             id: req.params.id
         })
     }catch(err){
