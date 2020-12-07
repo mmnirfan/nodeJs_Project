@@ -34,6 +34,19 @@ router.patch('/:id', async(req, res) => {
     }
 })
 
+router.delete('/:id', async(req, res) => {
+    try{
+        const client = await Client.findById(req.params.id)
+        a1 = await client.remove()
+        res.status(200).json({
+            message: "Request Client was DELETED",
+            id: req.params.id
+        })
+    }catch(err){
+        res.send('Error: ' + err);
+    }
+});
+
 router.post('/', async(req, res) => {
     const client = new Client({
         fullName: req.body.fullName,
