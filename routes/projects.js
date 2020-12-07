@@ -23,13 +23,14 @@ router.get('/:id', async(req, res) => {
 router.patch('/:id', async(req, res) => {
     try{
         const project = await Project.findById(req.params.id)
-        project.fullName = req.body.fullName
-        project.contact = req.body.contact
-        project.whatsappNo = req.body.whatsappNo
-        project.email = req.body.email
-        project.alternativeNo = req.body.alternativeNo
-        project.officeAddress = req.body.officeAddress
-        project.appExpress = req.body.appExpress
+        project.name = req.body.name
+        project.client = req.body.client
+        project.vendor = req.body.vendor
+        project.actualCost = req.body.actualCost
+        project.vendorCost = req.body.vendorCost
+        project.advance = req.body.advance
+        project.months = req.body.months
+        project.deadline = req.body.deadline
         const c1 = await project.save()
         res.json(c1);
     }catch(err){
@@ -52,13 +53,14 @@ router.delete('/:id', async(req, res) => {
 
 router.post('/', async(req, res) => {
     const project = new Project({
-        fullName: req.body.fullName,
-        contact:req.body.contact,
-        whatsappNo: req.body.whatsappNo,
-        email: req.body.email,
-        alternativeNo: req.body.alternativeNo,
-        officeAddress: req.body.officeAddress,
-        appExpress: req.body.appExpress
+        name: req.body.name,
+        client:req.body.client,
+        vendor: req.body.vendor,
+        actualCost: req.body.actualCost,
+        vendorCost: req.body.vendorCost,
+        advance: req.body.advance,
+        months: req.body.months,
+        deadline:req.body.deadline
     })
 
     try{
