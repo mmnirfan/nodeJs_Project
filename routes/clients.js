@@ -59,7 +59,7 @@ router.post('/', async(req, res) => {
         const a1 = await client.save()
         res.json(a1);
     }catch(err){
-        res.send("Error");
+        res.send("Error: " + err);
     }
 })
 

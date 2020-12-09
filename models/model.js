@@ -73,14 +73,12 @@ const projectSchema = new Schema({
         maxlength: 32
     },
     client: {
-        type: mongoose.Schema.Types.ObjectID,
-        ref: 'client',
-        required: true
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Client'
     },
     vendor: {
-        type: mongoose.Schema.Types.ObjectID,
-        ref: 'client',
-        required: true
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Vendor'
     },
     actualCost: {
         type: String,

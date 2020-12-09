@@ -5,6 +5,8 @@ const router = express.Router('mongoose');
 router.get('/', async(req, res) => {
     try{
         const projects = await Project.find()
+        .populate('vendor', 'fullName -_id').select('fullname vendor')
+        .populate('client', 'fullName -_id').select('fullname client')
         res.json(projects);
     }catch(err){
         res.send('Error: ' + err);
@@ -54,20 +56,20 @@ router.delete('/:id', async(req, res) => {
 router.post('/', async(req, res) => {
     const project = new Project({
         name: req.body.name,
-        client:req.body.client,
+        client: req.body.client,
         vendor: req.body.vendor,
         actualCost: req.body.actualCost,
         vendorCost: req.body.vendorCost,
         advance: req.body.advance,
         months: req.body.months,
-        deadline:req.body.deadline
+        deadline: req.body.deadline
     })
 
     try{
         const c1 = await project.save()
         res.json(c1);
     }catch(err){
-        res.send("Error");
+        res.send("Error: " + err);
     }
 })
 

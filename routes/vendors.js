@@ -53,7 +53,7 @@ router.delete('/:id', async(req, res) => {
 router.post('/', async(req, res) => {
     const vendor = new Vendor({
         fullName: req.body.fullName,
-        contact:req.body.contact,
+        contact: req.body.contact,
         whatsappNo: req.body.whatsappNo,
         email: req.body.email,
         alternativeNo: req.body.alternativeNo,
@@ -63,9 +63,9 @@ router.post('/', async(req, res) => {
 
     try{
         const b1 = await vendor.save()
-        res.json(b1);
+        res.status(201).json(b1);
     }catch(err){
-        res.send("Error");
+        res.status(404).send("Error: " + err);
     }
 })
 
