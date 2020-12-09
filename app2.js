@@ -17,6 +17,7 @@ app.use(express.json());
 const vendorRouter = require('./routes/vendors')
 app.use('/vendors', vendorRouter);
 
+
 app.listen(9000, function(){
     console.log('Server started');
 });

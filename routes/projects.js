@@ -1,5 +1,5 @@
 const express = require('express');
-const Project = require('../models/project_model');
+const Project = require('../models/projects_model');
 const router = express.Router('mongoose');
 
 router.post('/', async(req, res) => {
@@ -34,8 +34,8 @@ router.get('/', async(req, res) => {
 
 router.get('/:id', async(req, res) => {
     try{
-        const projects = await Project.findById(req.params.id)
-        res.json(projects);
+        const project = await Project.findById(req.params.id)
+        res.json(project);
     }catch(err){
         res.send('Error: ' + err);
     }
@@ -52,6 +52,7 @@ router.patch('/:id', async(req, res) => {
         project.advance = req.body.advance
         project.months = req.body.months
         project.deadline = req.body.deadline
+        
         const c1 = await project.save()
         res.json(c1);
     }catch(err){
@@ -62,10 +63,11 @@ router.patch('/:id', async(req, res) => {
 router.delete('/:id', async(req, res) => {
     try{
         const project = await Project.findById(req.params.id)
-        c1 = await project.remove()
+        const c1 = await project.remove()
         res.status(200).json({
             message: "Request Project was DELETED",
-            id: req.params.id
+            id: req.params.id,
+            c1
         })
     }catch(err){
         res.send('Error: ' + err);

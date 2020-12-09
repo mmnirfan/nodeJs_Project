@@ -32,8 +32,4 @@ const projectSchema = new Schema({
 });
 
 const projects = mongoose.model('Project', projectSchema);
-<<<<<<< HEAD
 module.exports = projects;
-=======
-module.exports = projects;
->>>>>>> 59cc3dc27937e9a121030abe7a077ca1a6ec8946

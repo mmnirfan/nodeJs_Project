@@ -17,9 +17,6 @@ app.use(express.json());
 const clientRouter = require('./routes/clients')
 app.use('/clients', clientRouter);
 
-const vendorRouter = require('./routes/vendors')
-app.use('/vendors', vendorRouter);
-
 app.listen(9000, function(){
     console.log('Server started');
 });
