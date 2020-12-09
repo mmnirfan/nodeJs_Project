@@ -1,6 +1,5 @@
 const express = require('express');
-const vendors = require('../models/model');
-const Vendor = require('../models/model');
+const Vendor = require('../models/vendors_model');
 const router = express.Router('mongoose');
 
 router.post('/', async(req, res) => {
@@ -47,7 +46,6 @@ router.patch('/:id', async(req, res) => {
         vendor.whatsappNo = req.body.whatsappNo
         vendor.email = req.body.email
         vendor.alternativeNo = req.body.alternativeNo
-        vendor.officeAddress = req.body.officeAddress
         vendor.appExpress = req.body.appExpress
         
         const b1 = await vendor.save()
