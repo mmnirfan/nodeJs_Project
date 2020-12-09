@@ -72,11 +72,13 @@ const projectSchema = new Schema({
         maxlength: 32
     },
     client: {
+        client: _id,
         type: String,
         required: true,
         maxlength: 50
     },
     vendor: {
+        vendor: _id,
         type: String,
         required: true,
         maxlength:52
