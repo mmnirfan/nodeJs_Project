@@ -5,21 +5,23 @@ const clientSchema = new Schema({
     fullName: {
         type: String,
         required: true,
-        length: 32
+        maxlength: 32
     },
     whatsappNo: {
         type: String,
         required: true,
-        length: 13
+        maxlength: 13,
+        minlength: 10
     },
     email: {
         type: String,
         required: true,
-        length: 32
+        maxlength: 32
     },
     officeAddress: {
         type: String,
         required: true,
+        maxlength: 52
     }
 }, { timestamps: true });
 
@@ -29,30 +31,35 @@ const vendorSchema = new Schema({
     fullName: {
         type: String,
         required: true,
-        length: 32
+        maxlength: 32
     },
     contact: {
         type: String,
-        required: true
+        required: true,
+        maxlength: 13,
+        minlength: 10
     },
     whatsappNo: {
         type: String,
         required: true,
-        length: 13
+        maxlength: 13,
+        minlength: 10
     },
     alternativeNo: {
         type: String,
         required: true,
-        length: 13
+        maxlength: 13,
+        minlength: 10
     },
     email: {
         type: String,
         required: true,
-        length: 32
+        maxlength: 32
     },
     appExpress: {
         type: String,
         required: true,
+        maxlength: 32
     }
 }, { timestamps: true });
 
@@ -62,35 +69,37 @@ const projectSchema = new Schema({
     name: {
         type: String,
         required: true,
-        length: 32
+        maxlength: 32
     },
     client: {
         type: String,
-        required: true
+        required: true,
+        maxlength: 50
     },
     vendor: {
         type: String,
-        required: true
+        required: true,
+        maxlength:52
     },
     actualCost: {
         type: String,
-        required: true,
+        required: true
     },
     vendorCost: {
         type: String,
-        required: true,
+        required: true
     },
     advance: {
         type: String,
-        required: true,
+        required: true
     },
     months: {
         type: String,
-        required: true,
+        required: true
     },
     deadline: {
         type: String,
-        required: true,
+        required: true
     }
 }, { timestamps: true });
 
