@@ -1,3 +1,4 @@
+const { ObjectID } = require('mongodb');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -72,16 +73,14 @@ const projectSchema = new Schema({
         maxlength: 32
     },
     client: {
-        client: _id,
-        type: String,
-        required: true,
-        maxlength: 50
+        type: mongoose.Schema.Types.ObjectID,
+        ref: 'client',
+        required: true
     },
     vendor: {
-        vendor: _id,
-        type: String,
-        required: true,
-        maxlength:52
+        type: mongoose.Schema.Types.ObjectID,
+        ref: 'client',
+        required: true
     },
     actualCost: {
         type: String,
