@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const url = "mongodb://localhost/ClientDBex"
+const url = "mongodb://localhost/nodeJs_newDBex"
 
 const app = express();
 

@@ -18,5 +18,5 @@ const projectRouter = require('./routes/projects')
 app.use('/projects', projectRouter);
 
 app.listen(9000, function(){
-    console.log('Server started');
+    console.log('Server Started');
 });
