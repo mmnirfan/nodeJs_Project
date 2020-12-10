@@ -1,22 +1,27 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const clientRouter = require('./routes/clients');
+const vendorRouter = require('./routes/vendors');
+const projectRouter = require('./routes/projects');
 const url = "mongodb://localhost/nodeJs_newDBex"
-
 const app = express();
 
-
 mongoose.connect(url, {useNewUrlParser:true})
-const con = mongoose.connection
+    .then(() => console.log('Connected to MongoDB...'))
+    .catch((err) => console.log(err));
 
-con.on('open', function(){
-    console.log('connected...')
-})
+
+//const con = mongoose.connection
+//con.on('open', function(){
+    //console.log('connected...')
+//})
 
 app.use(express.json());
-
-const clientRouter = require('./routes/clients')
 app.use('/clients', clientRouter);
+app.use('/vendors', vendorRouter);
+app.use('/projects', projectRouter);
 
-app.listen(9000, function(){
-    console.log('Server started');
+const port = process.env.PORT || 9000;
+app.listen(port, function(){
+    console.log(`Listening on port ${port}...`);
 });
