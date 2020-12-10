@@ -62,7 +62,7 @@ router.delete('/:id', async(req, res) => {
         res.status(200).json({
             message: "Request Vendor was DELETED",
             id: req.params.id,
-            b1
+            vendor
         })
     }catch(err){
         res.send('Error: ' + err);

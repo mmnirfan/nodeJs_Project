@@ -58,7 +58,7 @@ router.delete('/:id', async(req, res) => {
         res.status(200).json({
             message: "Request Client was DELETED",
             id: req.params.id,
-            a1
+            client
         })
     }catch(err){
         res.send('Error: ' + err);

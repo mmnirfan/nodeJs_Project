@@ -1,15 +1,18 @@
 const mongoose = require('mongoose');
 const { ObjectId } = require('mongodb');
 const Schema = mongoose.Schema;
+const client = require('./model');
+const vendor = require('./vendors_model');
 
 const projectSchema = new Schema({
     name: {
         type: String,
-        maxlength: 32
+        maxlength: 52
     },
     client: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Client'
+        ref: 'Client',
+        client
     },
     vendor: {
         type: mongoose.Schema.Types.ObjectId,

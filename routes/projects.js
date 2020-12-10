@@ -25,7 +25,6 @@ router.post('/', async(req, res) => {
 router.get('/', async(req, res) => {
     try{
         const projects = await Project.find()
-        .select('name')
         res.json(projects);
     }catch(err){
         res.send('Error: ' + err);
@@ -67,7 +66,7 @@ router.delete('/:id', async(req, res) => {
         res.status(200).json({
             message: "Request Project was DELETED",
             id: req.params.id,
-            c1
+            project
         })
     }catch(err){
         res.send('Error: ' + err);
